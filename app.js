@@ -10,7 +10,7 @@ let id = 0
 var jsonParser = bodyParser.json();
 var urlParser = bodyParser.urlencoded();
 
-router.get('/', (req, res, ) => {
+router.get('/', jsonParser, (req, res, ) => {
   // Returns a list of books in the library
   console.log("get returning", library.books);
   res.status(200).send(library.books);
