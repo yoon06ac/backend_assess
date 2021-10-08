@@ -5,11 +5,15 @@ const router = express.Router();
 let library = {books:[]}
 let id = 0
 router.get('/', (req, res, ) => {
+  console.log(library);
+  console.log(this.library);
   // Returns a list of books in the library
   res.status(200).json(this.library.books);
 });
 
 router.post('/', (req,res) => {
+  console.log(library);
+  console.log(this.library);
   // Add new book
   var newBooks = req.body.books;
   var errMsg = '';
@@ -33,6 +37,8 @@ router.post('/', (req,res) => {
 });
 
 router.delete('/', (req,res) => {
+  console.log(library);
+  console.log(this.library);
   // Remove all books
   this.library = {books:[]}
   res.status(204).send()
