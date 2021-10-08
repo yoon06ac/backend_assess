@@ -10,10 +10,16 @@ let id = 0
 var jsonParser = bodyParser.json();
 var urlParser = bodyParser.urlencoded();
 
+function SortArray(x, y){
+  if (x.title < y.title) {return -1;}
+  if (x.title > y.title) {return 1;}
+  return 0;
+}
+
 router.get('/', (req, res) => {
   // Returns a list of books in the library
   console.log("DEBUG: GET returning", library.books);
-  res.status(200).send({books: library.books});
+  res.status(200).send({books: library.books.sort(SortArray)});
 });
 
 router.post('/', jsonParser, (req,res) => {
