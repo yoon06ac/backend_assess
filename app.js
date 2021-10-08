@@ -13,7 +13,7 @@ var urlParser = bodyParser.urlencoded();
 router.get('/', (req, res, ) => {
   // Returns a list of books in the library
   console.log("get returning", library.books);
-  res.status(200).send([library.books]);
+  res.status(200).send(library.books);
 });
 
 router.post('/', jsonParser, (req,res) => {
