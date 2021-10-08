@@ -10,11 +10,10 @@ let id = 0
 var jsonParser = bodyParser.json();
 var urlParser = bodyParser.urlencoded();
 
-router.get('/', jsonParser, (req, res, ) => {
+router.get('/', (req, res, ) => {
   // Returns a list of books in the library
-  console.log("get returning", library.books);
-  data = library.books;
-  res.status(200).send(data);
+  console.log("DEBUG: GET returning", library.books);
+  res.status(200).send(library.books);
 });
 
 router.post('/', jsonParser, (req,res) => {
