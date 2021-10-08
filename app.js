@@ -37,7 +37,7 @@ router.post('/', jsonParser, (req,res) => {
   if (errMsg == '') {
     newBooks.id = id+1;
     library.books.push(newBooks);
-    console.log('Response will be ',newBooks);
+    console.log('Books in the library ', library.books);
     res.status(201).send(newBooks);
   }
   else {
