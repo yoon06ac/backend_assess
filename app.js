@@ -12,8 +12,23 @@ router.get('/', (req, res) => {
 router.post('/', (req,res) => {
   // Add new book
   var newBooks = req.body.books;
-  library.books.push(newBooks);
-  res.status(201).send()
+  var errMsg = '';
+  if (!newBooks.author) {
+    errMsg +=  "'author' is a required field\n";
+  }
+  if (!newBooks.title) {
+    errMsg += "'title' is a required field\n";
+  }
+  if (!newBooks.yearPublished) {
+    errMsg += "'yearPublished' is a required field\n";
+  }
+  if (errMsg != '') {
+    library.books.push(newBooks);
+    res.status(201).send()
+  }
+  else {
+    res.status(400).send(errMsg);
+  }
 });
 
 router.delete('/', (req,res) => {

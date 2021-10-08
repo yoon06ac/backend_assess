@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 
 app.use('/api/books', router);
-console.log(app.routes);
+console.log(router.stack);
 app.listen(port, () => {
   console.log(`Server is running, listening on port ${port}`);
 });
