@@ -16,7 +16,6 @@ router.get('/', (req, res, ) => {
 });
 
 router.post('/', jsonParser, (req,res) => {
-  console.log('requests body: ', req.body)
   if (req.body == undefined) {
     res.status(400).send('body is undefined');
   }
@@ -24,21 +23,22 @@ router.post('/', jsonParser, (req,res) => {
   var newBooks = req.body;
   var errMsg = '';
   if (!newBooks.author) {
-    console.log('no author')
+    console.log('no author');
     errMsg +=  "'author' is a required field\n";
   }
   if (!newBooks.title) {
-    console.log('no title')
+    console.log('no title');
     errMsg += "'title' is a required field\n";
   }
   if (!newBooks.yearPublished) {
-    console.log('no author')
+    console.log('no author');
     errMsg += "'yearPublished' is a required field\n";
   }
   if (errMsg == '') {
-    newBooks.id += id;
+    newBooks.id = id+1;
     library.books.push(newBooks);
-    res.status(201).send(newBooks)
+    console.log('Response will be ',newBooks);
+    res.status(201).send(newBooks);
   }
   else {
     console.log('err msg')
