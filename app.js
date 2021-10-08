@@ -8,6 +8,7 @@ let library = {books:[]}
 let id = 0
 
 var jsonParser = bodyParser.json();
+var urlParser = bodyParser.urlencoded();
 
 router.get('/', (req, res, ) => {
   console.log(library);
@@ -19,7 +20,7 @@ router.post('/', jsonParser, (req,res) => {
   console.log(library);
   console.log('request ', req);
   // Add new book
-  var newBooks = req.body.books;
+  var newBooks = req.body;
   var errMsg = '';
   if (!newBooks.author) {
     errMsg +=  "'author' is a required field\n";
