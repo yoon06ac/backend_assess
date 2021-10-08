@@ -7,7 +7,7 @@ let id = 0
 router.get('/', (req, res, ) => {
   console.log(library);
   // Returns a list of books in the library
-  res.status(200).json(this.library.books);
+  res.status(200).json(library.books);
 });
 
 router.post('/', (req,res) => {
@@ -26,7 +26,7 @@ router.post('/', (req,res) => {
   }
   if (errMsg != '') {
     newBooks.id += id;
-    this.library.books.push(newBooks);
+    library.books.push(newBooks);
     res.status(201).send()
   }
   else {
@@ -37,7 +37,7 @@ router.post('/', (req,res) => {
 router.delete('/', (req,res) => {
   console.log(library);
   // Remove all books
-  this.library = {books:[]}
+  library = {books:[]}
   res.status(204).send()
 });
 
