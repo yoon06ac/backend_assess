@@ -3,7 +3,7 @@ const router = express.Router();
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 let library = {books:[]}
-
+let id = 0
 router.get('/', (req, res) => {
   // Returns a list of books in the library
   res.status(200).json(library.books);
@@ -23,6 +23,7 @@ router.post('/', (req,res) => {
     errMsg += "'yearPublished' is a required field\n";
   }
   if (errMsg != '') {
+    newBooks.id += id;
     library.books.push(newBooks);
     res.status(201).send()
   }
