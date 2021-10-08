@@ -4,9 +4,9 @@ const router = express.Router();
 // app.use(express.urlencoded({ extended: true }));
 let library = {books:[]}
 let id = 0
-router.get('/', (req, res) => {
+router.get('/', (req, res, ) => {
   // Returns a list of books in the library
-  res.status(200).json(library.books);
+  res.status(200).json(this.library.books);
 });
 
 router.post('/', (req,res) => {
@@ -24,7 +24,7 @@ router.post('/', (req,res) => {
   }
   if (errMsg != '') {
     newBooks.id += id;
-    library.books.push(newBooks);
+    this.library.books.push(newBooks);
     res.status(201).send()
   }
   else {
@@ -34,7 +34,7 @@ router.post('/', (req,res) => {
 
 router.delete('/', (req,res) => {
   // Remove all books
-  libary = {books:[]}
+  this.library = {books:[]}
   res.status(204).send()
 });
 
