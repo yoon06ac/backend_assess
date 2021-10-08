@@ -11,14 +11,15 @@ var jsonParser = bodyParser.json();
 var urlParser = bodyParser.urlencoded();
 
 router.get('/', (req, res, ) => {
-  console.log(library);
   // Returns a list of books in the library
   res.status(200).json(library.books);
 });
 
 router.post('/', jsonParser, (req,res) => {
-  console.log(library);
-  console.log('request ', req);
+  console.log('requests body: ', req.body)
+  if (req.body == undefined) {
+    res.status(400).send('body is undefined');
+  }
   // Add new book
   var newBooks = req.body;
   var errMsg = '';
@@ -42,7 +43,6 @@ router.post('/', jsonParser, (req,res) => {
 });
 
 router.delete('/', (req,res) => {
-  console.log(library);
   // Remove all books
   library = {books:[]}
   res.status(204).send()
