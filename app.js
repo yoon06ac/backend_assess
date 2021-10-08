@@ -12,7 +12,7 @@ var urlParser = bodyParser.urlencoded();
 
 router.get('/', (req, res, ) => {
   // Returns a list of books in the library
-  res.status(200).json(library.books);
+  res.status(200).send(library.books);
 });
 
 router.post('/', jsonParser, (req,res) => {
@@ -49,6 +49,7 @@ router.post('/', jsonParser, (req,res) => {
 router.delete('/', (req,res) => {
   // Remove all books
   library = {books:[]}
+  id = 0;
   res.status(204).send()
 });
 
