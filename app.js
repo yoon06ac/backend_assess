@@ -35,7 +35,7 @@ router.post('/', jsonParser, (req,res) => {
     console.log('no author')
     errMsg += "'yearPublished' is a required field\n";
   }
-  if (errMsg != '') {
+  if (errMsg == '') {
     newBooks.id += id;
     library.books.push(newBooks);
     res.status(201).send(newBooks)
