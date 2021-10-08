@@ -12,6 +12,7 @@ router.get('/', (req, res, ) => {
 
 router.post('/', (req,res) => {
   console.log(library);
+  console.log('requests', req.body);
   // Add new book
   var newBooks = req.body.books;
   var errMsg = '';
