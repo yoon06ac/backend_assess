@@ -24,12 +24,15 @@ router.post('/', jsonParser, (req,res) => {
   var newBooks = req.body;
   var errMsg = '';
   if (!newBooks.author) {
+    console.log('no author')
     errMsg +=  "'author' is a required field\n";
   }
   if (!newBooks.title) {
+    console.log('no title')
     errMsg += "'title' is a required field\n";
   }
   if (!newBooks.yearPublished) {
+    console.log('no author')
     errMsg += "'yearPublished' is a required field\n";
   }
   if (errMsg != '') {
@@ -38,6 +41,7 @@ router.post('/', jsonParser, (req,res) => {
     res.status(201).send(newBooks)
   }
   else {
+    console.log('err msg')
     res.status(400).send(errMsg);
   }
 });
